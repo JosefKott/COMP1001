@@ -1,1 +1,20 @@
 
+
+#include <iostream>
+.data
+	power DWORD 2200
+	volt DWORD 220
+	zero DWORD 0
+	quotient DWORD 0
+	remainder DWORD 0
+
+.code
+main PROC
+	mov edx, zero
+	mov eax, power
+	mov ecx, volt
+	div ecx
+	mov quotient, eax
+	mov remainder, edx
+	exit
+
