@@ -1,0 +1,13 @@
+lower_sum DWORD 0
+upper_sum DWORD 0
+a DWORD 1001
+b DWORD 999
+
+.code
+
+main PROC
+
+move eax, a
+mul b
+move lower_sum
+mov higher_sum
