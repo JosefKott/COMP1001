@@ -1,0 +1,26 @@
+.386
+.model flat, stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode:DWORD
+
+.data
+	
+	array DWORD 5, 10, 15, 20, 25 ; defining the array
+
+.code
+
+main PROC
+		mov ecx, 8
+		mov esi, 0
+update:
+		mov eax, [array + TYPE array * esi]
+		mul ecx
+		mov [array + TYPE array * esi], eax
+		inc esi
+		cmp esi, 4
+		jne update
+		
+		INVOKE ExitProcess, 0
+
+
+
