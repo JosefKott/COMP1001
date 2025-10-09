@@ -1,0 +1,17 @@
+.386
+.model flat, stdcall
+.stack 4096
+ExitProcess PROTO, dwExitCode:DWORD
+
+.data
+
+my_array DWORD 4, 3, 5, 6
+
+mov ecx, [my_array + TYPE my_array * ith.element]
+
+mov ecx, [my_array + TYPE array * 1]
+
+mov edx, 10h
+mov [my_array + TYPE array * 1], edx
+
+END main
