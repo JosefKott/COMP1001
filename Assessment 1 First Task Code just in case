@@ -1,0 +1,35 @@
+; A simple template for assembly programs.
+.386  ; Specify instruction set
+.model flat, stdcall  ; Flat memory model, std. calling convention
+.stack 4096 ; Reserve stack space
+ExitProcess PROTO, dwExitCode: DWORD  ; Exit process prototype
+
+.data ; data segment
+array DWORD 10, 20, 30, 40   ; array of dword
+three DWORD 3
+six DWORD 6
+
+.code ; code segment
+
+
+main PROC ; main procedure
+	; write your assembly code here
+mov esi, OFFSET array   ; points the esi to the start of array
+add esi, 12
+mov eax, [esi]
+
+mov ebx, [three]     ;this multiplies eax by 3
+mul ebx
+
+mov ebx, [six]     ; this is to divide the result by six
+xor edx, edx
+div ebx
+
+mov [esi], eax   ; stores the result back into the array
+
+
+
+	INVOKE ExitProcess, 0 ; call exit function
+  
+main ENDP ; exit main procedure
+END main  ; stop assembling
